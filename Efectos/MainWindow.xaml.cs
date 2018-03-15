@@ -84,6 +84,8 @@ namespace Efectos
                     (float) sldFactor.Value;
                 
             }
+
+
         }
 
         private void btnDelay_Click(object sender, RoutedEventArgs e)
@@ -97,6 +99,16 @@ namespace Efectos
                 delayProvider = new Efectos.Delay(reader);
                 waveOut.Init(delayProvider);
                 waveOut.Play();
+            }
+        }
+
+        private void sldDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (delayProvider != null)
+            {
+                delayProvider.offsetTiempoMS =
+                    (int)sldDelay.Value;
+
             }
         }
     }
